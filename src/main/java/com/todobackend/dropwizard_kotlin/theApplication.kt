@@ -1,5 +1,6 @@
 package com.todobackend.dropwizard_kotlin
 
+import com.todobackend.dropwizard_kotlin.resources.TodoResource
 import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
@@ -14,6 +15,7 @@ class theApplication : Application<theConfiguration>() {
 
     override fun run(configuration: theConfiguration,
                      environment: Environment) {
-        // TODO: implement application
+        val todoResource = TodoResource()
+        environment.jersey().register(todoResource)
     }
 }
